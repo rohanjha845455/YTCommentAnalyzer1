@@ -6,7 +6,8 @@ import json
 import streamlit as st
 
 def load_api_key():
-    return st.secrets["api_key"]
+    with open('api_key.json') as f:
+        return json.load(f)['api_key']
 
 def get_youtube_service():
     api_key = load_api_key()
